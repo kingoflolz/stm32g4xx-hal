@@ -4,6 +4,16 @@
   "rust.all_features": false,
   "rust.features": [
     "rt",
-    "stm32g431"
+    "stm32g473"
+  ],
+  "rust-analyzer.checkOnSave.allTargets": false,
+  "rust-analyzer.checkOnSave.extraArgs": [
+    "--examples",
+  ],
+  "rust-analyzer.cargo.features": [
+    "stm32g473",
+    "usb_fs",
+    "defmt-logging",
+
   ]
 }
