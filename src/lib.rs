@@ -91,6 +91,7 @@ pub mod timer;
     feature = "stm32-usbd",
     any(
         feature = "stm32g473",
+        feature = "stm32g431",
     )
 ))]
 pub mod usb;
