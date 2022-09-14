@@ -19,6 +19,7 @@ use crate::{
 };
 use core::fmt;
 use core::marker::PhantomData;
+use core::sync::atomic::{fence, Ordering};
 use embedded_hal::{
     adc::{Channel, OneShot},
     blocking::delay::DelayUs,
@@ -1463,6 +1464,7 @@ macro_rules! adc {
                     }
 
                     self.adc_reg.cr.modify(|_, w| w.adcal().set_bit() );
+                    fence(Ordering::SeqCst);
                     while self.adc_reg.cr.read().adcal().bit_is_set() {}
                 }
 
